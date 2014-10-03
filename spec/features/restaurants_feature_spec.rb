@@ -25,4 +25,15 @@ describe 'restaurants' do
 	  end
 	end
 
+	context 'user adds a restaurant' do
+
+		it 'add a restaurant' do
+			visit '/restaurants'
+			click_link 'Add a restaurant'
+			fill_in 'Name', :with => 'KFC'
+			fill_in 'Description', :with => 'meh'
+			click_button 'Add restaurant'
+		end
+	end
+
 end
