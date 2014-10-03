@@ -30,6 +30,15 @@ describe 'restaurants' do
 	  	expect(page).to have_content 'meh'
 	  end
 
+	  it 'can be edited' do
+	  	click_link 'KFC'
+	  	click_link 'Edit'
+	  	fill_in 'Name', :with => 'Maccy D'
+	  	fill_in 'Description', :with => 'urgh'
+	  	click_button 'Submit'
+	  	expect(page).to have_content 'Maccy D'
+	  end
+
 	end
 
 	context 'user adds a restaurant' do
@@ -39,7 +48,7 @@ describe 'restaurants' do
 			click_link 'Add a restaurant'
 			fill_in 'Name', :with => 'KFC'
 			fill_in 'Description', :with => 'meh'
-			click_button 'Add restaurant'
+			click_button 'Submit'
 			expect(current_path).to eq '/restaurants'
       expect(page).to have_content('KFC')
 		end
