@@ -39,6 +39,13 @@ describe 'restaurants' do
 	  	expect(page).to have_content 'Maccy D'
 	  end
 
+	  it 'can be deleted' do
+	  	click_link 'KFC'
+	  	click_link 'Delete'
+	  	expect(current_path).to eq '/restaurants'
+	  	expect(page).not_to have_content 'KFC'
+	  end
+
 	end
 
 	context 'user adds a restaurant' do
