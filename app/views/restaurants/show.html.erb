@@ -1,0 +1,20 @@
+<strong><%= @restaurant.name %></strong>
+	<strong>Cuisine:</strong>
+	<%= @restaurant.description %>
+<% if @restaurant.reviews %>
+<section class='reviews'>
+<h2>Reviews:</h2>
+<% @restaurant.reviews.each do |review| %>
+<br>
+<li>
+		<strong>Rating:</strong>
+		<%= review.rating %><br>
+		<strong>Comment:</strong>
+		<%= review.thoughts %><br>
+	<em>Posted: <%= created(review.created_at) %></em>
+</li>
+<br>
+	<% end %>
+</section>
+<% end %>
+<%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>

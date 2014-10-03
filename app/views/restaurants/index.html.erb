@@ -1,13 +1,12 @@
 <% if @restaurants.any? %>
     <% @restaurants.each do |restaurant| %>
-        <h2> <%= restaurant.name %> </h2>
-    <%= link_to 'Review KFC', new_restaurant_review_path(restaurant) %>
+        <h2> <%= link_to restaurant.name, restaurant_path(restaurant) %> </h2>
+        <%= link_to 'Review ' + restaurant.name, new_restaurant_review_path(restaurant) %><br>
     <% restaurant.reviews.each do |review| %>
-    	<%= review.thoughts %>
+    	<%= review.thoughts %><br>
     	<% end %>
     <% end %>
 <% else %>
     No restaurants yet
 <% end %>
-
 <%= link_to 'Add a restaurant', new_restaurant_path %>
