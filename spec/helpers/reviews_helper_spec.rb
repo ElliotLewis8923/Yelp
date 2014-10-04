@@ -19,7 +19,6 @@ describe ReviewsHelper, :type => :rails_helper do
 			expect(star_rating(3)).to eq '★★★☆☆'
 		end
 
-
 	end
 
 end
