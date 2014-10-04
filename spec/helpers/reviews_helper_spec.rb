@@ -21,4 +21,22 @@ describe ReviewsHelper, :type => :rails_helper do
 
 	end
 
+	context '#created' do
+
+		it "displays minutes elapsed if created within the hour" do
+			time = Time.now - 3000
+			expect(created(time)).to eq '50 minutes ago'
+		end
+
+		it "displays hours elapsed if created longer than an hour ago" do
+			time = Time.now - 4000
+			expect(created(time)).to eq '1 hour ago'
+		end
+
+		it 'displays days elapsed if created longer than a day ago' do
+			time = Time.now - 90000
+			expect(created(time)).to eq '1 day ago'
+		end
+	end
+
 end
