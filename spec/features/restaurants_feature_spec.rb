@@ -22,7 +22,6 @@ describe 'restaurants' do
 	  end
 
 	  it 'should display restaurants on the homepage' do
-	    puts @restaurant.inspect
 	    expect(page).to have_content('KFC')
 	    expect(page).not_to have_content('No restaurants yet')
 	  end

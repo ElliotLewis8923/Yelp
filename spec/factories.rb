@@ -1,9 +1,9 @@
 FactoryGirl.define do
     
-  	factory :user do
-    	email 'elliot@myownspecialdomain.com'
-    	password 'f4k3p455w0rd'
-  	end
+  factory :user do
+    email 'elliot@myownspecialdomain.com'
+    password 'f4k3p455w0rd'
+  end
 
 
 	factory :review do
@@ -16,6 +16,11 @@ FactoryGirl.define do
 	factory :endorsement do
 		user
 		review
+	end
+
+	factory :restaurant do
+		name 'kfc'
+		description 'food'
 	end
 
 end
