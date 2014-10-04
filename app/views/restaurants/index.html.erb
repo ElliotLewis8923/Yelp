@@ -4,6 +4,8 @@
         <%= link_to 'Review ' + restaurant.name, new_restaurant_review_path(restaurant) %><br>
     <% restaurant.reviews.each do |review| %>
     	<%= review.thoughts %><br>
+    	<%= link_to 'Endorse', review_endorsements_path(review), method: :post %>
+    	<%= review.endorsements.count %> endorsements
     	<% end %>
     <% end %>
 <% else %>
