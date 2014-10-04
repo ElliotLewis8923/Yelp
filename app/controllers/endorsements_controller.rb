@@ -2,6 +2,8 @@ class EndorsementsController < ApplicationController
 
 	include ActionView::Helpers::TextHelper
 
+	before_action :authenticate_user!
+
 	def create
 		@review = Review.find(params[:review_id])
 		@review.endorsements.create

@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+	include Warden::Test::Helpers
+
 describe 'restaurants' do
   
   context 'no restaurants have been added' do
@@ -16,6 +18,7 @@ describe 'restaurants' do
 	  before do
 	      @restaurant = Restaurant.create(name: 'KFC', description: 'meh')
 	      visit '/restaurants'
+	      login_as create(:user)
 	  end
 
 	  it 'should display restaurants on the homepage' do
@@ -51,6 +54,7 @@ describe 'restaurants' do
 	context 'user adds a restaurant' do
 
 		it 'add a restaurant' do
+			login_as create(:user)
 			visit '/restaurants'
 			click_link 'Add a restaurant'
 			fill_in 'Name', :with => 'KFC'

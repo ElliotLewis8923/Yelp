@@ -1,9 +1,15 @@
 require 'rails_helper'
 
+	include Warden::Test::Helpers
+
+Warden.test_mode!
+
 describe 'reviewing' do
     before do
+
         @restaurant = Restaurant.create(name: 'KFC', description: 'meh')
         visit '/restaurants'
+        login_as create(:user)
     end
 
     it 'allows users to leave a review using a form' do

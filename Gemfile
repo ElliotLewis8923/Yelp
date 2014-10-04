@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "factory_girl_rails", "~> 4.0"
 gem 'omniauth-facebook'
 gem 'devise'
 gem 'database_cleaner'

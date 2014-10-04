@@ -1,5 +1,10 @@
+require 'devise'
 
-
+ def write_review(thoughts, rating)
+    fill_in "Thoughts", with: "so so"
+    select '3', from: 'Rating'
+    click_button 'Leave Review'
+  end
 
 
 
@@ -21,13 +26,9 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  # rspec-expectations config goes here. You can use an alternate
-  def write_review(thoughts, rating)
-    fill_in "Thoughts", with: "so so"
-    select '3', from: 'Rating'
-    click_button 'Leave Review'
-  end
 
+  # rspec-expectations config goes here. You can use an alternate
+ #config.include Devise::TestHelpers, :type => :controller
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.expect_with :rspec do |expectations|
