@@ -6,6 +6,12 @@ require 'devise'
     click_button 'Leave Review'
   end
 
+  def edit_restaurant(name, description)
+    fill_in "Name", with: name
+    fill_in "Description", with: description
+    click_button 'Submit'
+  end
+
 
 
 

@@ -1,8 +1,16 @@
 FactoryGirl.define do
     
   factory :user do
-    email 'elliot@myownspecialdomain.com'
-    password 'f4k3p455w0rd'
+
+  	factory :luke do
+    	email 'luke@domain.com'
+    	password 'f4k3p455w0rd'
+  	end
+
+  	factory :anna do
+  		email 'anna@blah.com'
+    	password 'f4k3p455w0rd'
+    end
   end
 
 

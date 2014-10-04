@@ -6,7 +6,7 @@ describe 'endorsing reviews' do
 	before(:each) do
 		kfc = Restaurant.create(name: 'KFC', description:'food')
 		kfc.reviews.create(rating:3, thoughts:"OK")
-		login_as create(:user)
+		login_as create(:anna)
 	end
 
 

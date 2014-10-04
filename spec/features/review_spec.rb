@@ -9,7 +9,7 @@ describe 'reviewing' do
 
         @restaurant = Restaurant.create(name: 'KFC', description: 'meh')
         visit '/restaurants'
-        login_as create(:user)
+        login_as create(:anna)
     end
 
     it 'allows users to leave a review using a form' do

@@ -18,7 +18,10 @@ describe 'restaurants' do
 	  before do
 	      @restaurant = Restaurant.create(name: 'KFC', description: 'meh')
 	      visit '/restaurants'
-	      login_as create(:user)
+	      @user = create(:luke)
+	      @restaurant.user_id = @user.id
+	      @restaurant.save
+	      login_as @user
 	  end
 
 	  it 'should display restaurants on the homepage' do
@@ -53,7 +56,7 @@ describe 'restaurants' do
 	context 'user adds a restaurant' do
 
 		it 'add a restaurant' do
-			login_as create(:user)
+			login_as create(:luke)
 			visit '/restaurants'
 			click_link 'Add a restaurant'
 			fill_in 'Name', :with => 'KFC'
