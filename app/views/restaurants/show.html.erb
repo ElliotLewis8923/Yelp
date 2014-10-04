@@ -17,6 +17,7 @@
 		<%= star_rating(review.rating) %><br>
 		<strong>Comment:</strong>
 		<%= review.thoughts %><br>
+		<em>Posted: <%= created(review.created_at) %></em>
 </li>
 <br>
 	<% end %>

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'reviewing' do
     before do
-        Restaurant.create(name: 'KFC', description: 'meh')
+        @restaurant = Restaurant.create(name: 'KFC', description: 'meh')
         visit '/restaurants'
     end
 
@@ -20,6 +20,13 @@ describe 'reviewing' do
       click_link 'KFC'
       expect(page).to have_content '★★★☆☆'
     end
+
+    it 'should display in words the time elapsed since the review was posted' do
+			time = Time.now - 3000
+			@restaurant.reviews.create(thoughts:'ewww', rating:1, created_at:time)
+			click_link 'KFC'
+			expect(page).to have_content '50 minutes ago'
+		end
 
 
 
