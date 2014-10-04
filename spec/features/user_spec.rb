@@ -37,6 +37,20 @@ describe 'User' do
 		expect(page).to have_content 'Maccy Ds'
 	end
 
+	it 'can only delete a restaurant they have created' do
+		@restaurant.user_id = @user2.id
+		@restaurant.save
+		login_as @user
+		visit '/restaurants'
+		click_link 'kfc'
+		expect(page).not_to have_content 'Delete'
+		logout
+		login_as @user2
+		visit '/restaurants'
+		click_link 'kfc'
+		click_link 'Delete'
+		expect(page).not_to have_content 'Maccy Ds'
+	end
 
 
 
