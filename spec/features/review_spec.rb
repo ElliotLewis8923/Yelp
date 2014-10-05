@@ -21,6 +21,9 @@ describe 'reviewing' do
     end
 
     it 'should display a star rating for each review on the show page' do
+    	@restaurant.user_id = create(:luke)
+    	@restaurant.save
+    	visit '/restaurants'
       click_link 'Review KFC'
       write_review('3', 'so so')
       click_link 'KFC'

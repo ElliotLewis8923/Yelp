@@ -1,7 +1,11 @@
 <% if @restaurants.any? %>
     <% @restaurants.each do |restaurant| %>
         <h2> <%= link_to restaurant.name, restaurant_path(restaurant) %> </h2>
+        <% if current_user %>
+        <% if restaurant.user_id != current_user.id %>
         <%= link_to 'Review ' + restaurant.name, new_restaurant_review_path(restaurant) %><br>
+        <% end %>
+        <% end %>
     <% restaurant.reviews.each do |review| %>
     	<%= review.thoughts %><br>
     	<%= link_to 'Endorse', review_endorsements_path(review), class: 'endorsements-link' %>

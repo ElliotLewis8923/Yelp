@@ -52,6 +52,13 @@ describe 'User' do
 		expect(page).not_to have_content 'Maccy Ds'
 	end
 
+	it 'can not review their own restaurant' do
+		@restaurant.user_id = @user.id
+		@restaurant.save
+		login_as @user
+		visit '/restaurants'
+		expect(page).not_to have_content 'Review kfc'
+	end
 
 
 
