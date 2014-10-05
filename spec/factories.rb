@@ -29,6 +29,7 @@ FactoryGirl.define do
 	factory :restaurant do
 		name 'kfc'
 		description 'food'
+		image nil
 	end
 
 end

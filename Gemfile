@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk', '~> 1.5.7'
 gem 'rmagick'
 gem "paperclip", "~> 4.2"
 gem "factory_girl_rails", "~> 4.0"

@@ -1,5 +1,5 @@
 <strong><%= @restaurant.name %></strong>
-<%= image_tag @restaurant.image.url(:medium) %>
+<%= image_tag @restaurant.image.url %>
 <% if current_user %>
 <% if @restaurant.user_id == current_user.id %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>

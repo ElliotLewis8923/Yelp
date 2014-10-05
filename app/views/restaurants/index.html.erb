@@ -1,7 +1,7 @@
 <% if @restaurants.any? %>
     <% @restaurants.each do |restaurant| %>
         <h2> <%= link_to restaurant.name, restaurant_path(restaurant) %> </h2>
-        <%= image_tag restaurant.image.url(:thumb) %>
+        <%= image_tag restaurant.image.url %>
         puts restaurant.inspect
         <% if current_user %>
         <% if restaurant.user_id != current_user.id %>
