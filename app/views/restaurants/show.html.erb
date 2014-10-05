@@ -1,7 +1,10 @@
 <strong><%= @restaurant.name %></strong>
+<%= image_tag @restaurant.image.url(:medium) %>
+<% if current_user %>
 <% if @restaurant.user_id == current_user.id %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
 <%= link_to 'Delete', restaurant_path(@restaurant), method: :delete %>
+<% end %>
 <% end %>
 
 <br>

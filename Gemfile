@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rmagick'
+gem "paperclip", "~> 4.2"
 gem "factory_girl_rails", "~> 4.0"
 gem 'omniauth-facebook'
 gem 'devise'
